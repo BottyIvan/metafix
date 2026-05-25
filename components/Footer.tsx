@@ -43,7 +43,7 @@ export function Footer() {
               {SOCIAL_LINKS.map(({ href, icon: Icon, label }) => (
                 <Link
                   key={label}
-                  href={`https://${href}`}
+                  href={href || "#"}
                   aria-label={label}
                   className="hover:text-primary transition-colors"
                   target="_blank"
