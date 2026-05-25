@@ -1,36 +1,164 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MetaFix
 
-## Getting Started
+MetaFix is a privacy-first web app to inspect and remove metadata from files directly in the browser.
 
-First, run the development server:
+All extraction and cleanup logic runs client-side in this project flow (no file upload required).
+
+## Why MetaFix
+
+- Drag and drop a supported file.
+- Inspect metadata (EXIF for images, document info for PDFs).
+- Remove metadata and download a cleaned file.
+- Keep legal pages and consent flow ready for optional tracking/ads scenarios.
+
+## Features
+
+- Local-first UX with drag and drop.
+- Metadata extraction:
+  - Images: EXIF parsing.
+  - PDFs: title, author, subject inspection.
+- Metadata cleaning:
+  - JPEG and PNG: re-encode through canvas to remove embedded metadata.
+  - PDF: reset title/author/subject fields.
+- Legal pages rendered from MDX.
+- Optional GTM + AdSense integration behind Consent Mode v2.
+- Optional Cookiebot bridge for certified CMP workflows.
+
+## Supported File Types
+
+| Type | Inspect Metadata | Clean Metadata |
+| --- | --- | --- |
+| PDF (`application/pdf`) | Yes | Yes |
+| JPEG (`image/jpeg`) | Yes | Yes |
+| PNG (`image/png`) | Yes | Yes |
+| GIF (`image/gif`) | Yes | Not yet |
+| WEBP (`image/webp`) | Yes | Not yet |
+
+## Tech Stack
+
+- Next.js 16 (App Router)
+- React 19
+- TypeScript
+- Tailwind CSS v4
+- MDX for legal content
+- `exifr` for EXIF parsing
+- `pdf-lib` for PDF metadata read/write
+
+## Quick Start
+
+### Prerequisites
+
+- Node.js 20+
+- npm 10+
+
+### Install
+
+```bash
+npm install
+```
+
+### Configure
+
+```bash
+cp .env.example .env.local
+```
+
+Edit `.env.local` with your values.
+
+### Run
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm run start
+```
 
-## Learn More
+## Environment
 
-To learn more about Next.js, take a look at the following resources:
+All runtime variables are documented in `.env.example`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Main toggles:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `NEXT_PUBLIC_ENABLE_TRACKING`: enables GTM/consent/ads logic when `"true"`.
+- `NEXT_PUBLIC_CMP_PROVIDER`: `custom` or `cookiebot`.
 
-## Deploy on Vercel
+## Consent, GTM, and Ads
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+When tracking is enabled:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Default consent is denied before GTM initialization.
+- User choices update Consent Mode v2 signals (`ad_storage`, `analytics_storage`, `ad_user_data`, `ad_personalization`).
+- AdSense loads only after accepted consent.
+
+Cookiebot mode (certified CMP) is available by setting:
+
+- `NEXT_PUBLIC_CMP_PROVIDER="cookiebot"`
+- `NEXT_PUBLIC_COOKIEBOT_ID="..."`
+
+## Scripts
+
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start development server. |
+| `npm run build` | Build production output (static export enabled). |
+| `npm run build:static` | Build and move `out` to `dist`. |
+| `npm run start` | Run production server. |
+| `npm run lint` | Run ESLint checks. |
+
+## Deployment
+
+### Vercel
+
+Deploy normally and set environment variables in project settings.
+
+### GitHub Pages (Static)
+
+The app uses static export (`output: "export"`).
+
+```bash
+npm run build:static
+```
+
+For project pages, set in CI:
+
+```bash
+GITHUB_PAGES="true"
+NEXT_BASE_PATH="/<repo-name>"
+```
+
+Then publish with GitHub Actions.
+
+## Project Structure
+
+```text
+app/                 Routes, layout, and pages
+components/          UI and integration components
+content/             Legal MDX files (privacy, terms, cookies)
+hooks/               UI/business hooks (file metadata flow)
+lib/                 Core logic (supported files, metadata extract/clean)
+types/               TypeScript type definitions
+utils/               Shared utilities (download helper)
+```
+
+## Limitations
+
+- GIF and WEBP metadata cleaning is not implemented yet.
+- Ad rendering depends on configured slot IDs and granted consent.
+- Legal routes are statically generated for known slugs (`privacy`, `terms`, `cookies`).
+
+## Contributing
+
+1. Create a branch from `main`.
+2. Use Conventional Commits.
+3. Run lint and local checks before opening a PR.
+
+## License
+
+Add your preferred license (for example MIT) and include a `LICENSE` file.
