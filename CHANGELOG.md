@@ -1,0 +1,17 @@
+## 1.0.0 (2026-05-25)
+
+### Features
+
+* add .env.example file with environment variable placeholders ([4479125](https://github.com/BottyIvan/metafix/commit/44791254450a64df32e0f5dc2af0ffa894356f49))
+* add /dist/ to .gitignore for next.js build artifacts ([a1c6adb](https://github.com/BottyIvan/metafix/commit/a1c6adb88bfdeadd49ddbe3362033b75fe7b0e3b))
+* add GitHub Actions workflows for deploying to GitHub Pages and handling releases ([554b834](https://github.com/BottyIvan/metafix/commit/554b834e4e50eba8b760163e20e156d8e5e06d2d))
+* add legal documents including Cookie Policy, Privacy Policy, and Terms of Service ([0338b7b](https://github.com/BottyIvan/metafix/commit/0338b7bc0c90140552bec13b23044d0ea5ec2e40))
+* add legal pages and metadata handling ([113979d](https://github.com/BottyIvan/metafix/commit/113979d6624206ed6b977498104fd7080ac9eb79))
+* add semantic release configuration for automated versioning and changelog generation ([474efa4](https://github.com/BottyIvan/metafix/commit/474efa4ef676858e51685813161736b1b3289b1c))
+* bootstrap project for first automated release ([35f6a3e](https://github.com/BottyIvan/metafix/commit/35f6a3e0032d87c810d40c8686ef46a3e6574eb9))
+* enhance Next.js configuration to support MDX files and GitHub Pages ([0ea23c3](https://github.com/BottyIvan/metafix/commit/0ea23c3b385641b3eac65b428e7b32b84dd25fce))
+* update README.md with comprehensive app overview, features, and deployment instructions ([04c7410](https://github.com/BottyIvan/metafix/commit/04c741016479d3b3c666544da1c4f786e0e2f775))
+
+### Bug Fixes
+
+* update .gitignore to allow committing .env.example file ([ec60064](https://github.com/BottyIvan/metafix/commit/ec60064bc7d92d22e4ca66b8532b130522cd999a))
