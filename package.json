@@ -5,21 +5,41 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:static": "next build && rm -rf dist && mv out dist",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "release": "semantic-release",
+    "release:dry": "semantic-release --dry-run"
   },
   "dependencies": {
-    "next": "16.2.0",
+    "@mdx-js/loader": "^3.1.1",
+    "@mdx-js/react": "^3.1.1",
+    "@next/mdx": "^16.2.6",
+    "@next/third-parties": "^16.2.6",
+    "@types/mdx": "^2.0.13",
+    "exifr": "^7.1.3",
+    "lucide-react": "^0.577.0",
+    "next": "^16.2.6",
+    "pdf-lib": "^1.17.1",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "react-dropzone": "^15.0.0"
   },
   "devDependencies": {
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/commit-analyzer": "^13.0.1",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^12.0.8",
+    "@semantic-release/release-notes-generator": "^14.1.1",
     "@tailwindcss/postcss": "^4",
+    "@tailwindcss/typography": "^0.5.19",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "conventional-changelog-conventionalcommits": "^9.3.1",
     "eslint": "^9",
-    "eslint-config-next": "16.2.0",
+    "eslint-config-next": "^16.2.6",
+    "semantic-release": "^25.0.3",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
