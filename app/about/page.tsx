@@ -30,7 +30,7 @@ export default function AboutPage() {
               Feedback or bug report?
               <span className="block mt-2">
                 <a
-                  href="mailto:info@tuodominio.com"
+                  href={`${process.env.NEXT_PUBLIC_GITHUB_URL}/issues`}
                   className="font-medium text-foreground underline underline-offset-4 hover:opacity-70"
                 >
                   Contact me
