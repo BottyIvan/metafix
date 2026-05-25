@@ -21,6 +21,8 @@ jobs:
     env:
       GITHUB_PAGES: "true"
       NEXT_BASE_PATH: /${{ github.event.repository.name }}
+      NEXT_PUBLIC_GITHUB_URL: https://github.com/${{ github.repository }}
+      NEXT_PUBLIC_LINKEDIN_URL: ${{ secrets.LINKEDIN_URL }}
 
     steps:
       - name: Checkout
@@ -43,9 +45,6 @@ jobs:
 
       - name: Build static site
         run: npm run build:static
-        env:
-          NEXT_PUBLIC_GITHUB_URL: /${{ github.event.repository.name }}
-          NEXT_PUBLIC_LINKEDIN_URL: ${{ secrets.LINKEDIN_URL }}
 
       - name: Upload dist artifact
         uses: actions/upload-pages-artifact@v3
