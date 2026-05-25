@@ -1,3 +1,13 @@
+## [1.1.0](https://github.com/BottyIvan/metafix/compare/v1.0.0...v1.1.0) (2026-05-25)
+
+### Features
+
+* add environment variables for GitHub URL and LinkedIn URL in deployment workflow ([fd26445](https://github.com/BottyIvan/metafix/commit/fd26445078da8d7ea3f034b895abf43528acd53e))
+
+### Bug Fixes
+
+* update contact link to direct users to GitHub issues page ([f731a38](https://github.com/BottyIvan/metafix/commit/f731a38d89e1dc2c56c9578063619112f6a58646))
+
 ## 1.0.0 (2026-05-25)
 
 ### Features
