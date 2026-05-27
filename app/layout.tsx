@@ -24,6 +24,11 @@ export const metadata: Metadata = {
     template: "%s | MetaFix",
   },
   description: "View and clean file metadata in seconds.",
+  other: {
+    ...(process.env.NEXT_PUBLIC_ADSENSE_ACCOUNT
+      ? { "google-adsense-account": process.env.NEXT_PUBLIC_ADSENSE_ACCOUNT }
+      : {}),
+  },
 };
 
 const trackingEnabled = process.env.NEXT_PUBLIC_ENABLE_TRACKING === "true";
@@ -42,6 +47,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
+      {/* head gestito da metadata */}
       <body className="min-h-full p-0 m-0 flex flex-col bg-background text-foreground">
         {trackingEnabled ? (
           <Script id="consent-mode-default" strategy="beforeInteractive">
