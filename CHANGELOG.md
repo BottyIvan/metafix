@@ -1,3 +1,9 @@
+## [1.2.2](https://github.com/BottyIvan/metafix/compare/v1.2.1...v1.2.2) (2026-05-27)
+
+### Bug Fixes
+
+* move AdSense account meta tag to Head component ([3b49dde](https://github.com/BottyIvan/metafix/commit/3b49dde0e31f6c467e74403105c7c35f5a19b624))
+
 ## [1.2.1](https://github.com/BottyIvan/metafix/compare/v1.2.0...v1.2.1) (2026-05-27)
 
 ### Bug Fixes
