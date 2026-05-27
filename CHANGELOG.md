@@ -1,3 +1,12 @@
+## [1.2.1](https://github.com/BottyIvan/metafix/compare/v1.2.0...v1.2.1) (2026-05-27)
+
+### Bug Fixes
+
+* add Adsense account variable to deployment workflow ([5086cdb](https://github.com/BottyIvan/metafix/commit/5086cdb3ada1356ba9ba64e8045a2c7a3c4924d3))
+* add AdSense environment variables to README ([5e889d8](https://github.com/BottyIvan/metafix/commit/5e889d8e5f95577f9df64aa113ac091271c90ec0))
+* add missing Adsense account variable to .env.example ([0324462](https://github.com/BottyIvan/metafix/commit/0324462cba548a53d8c49838204978a2ca2f9ce2))
+* add missing Adsense account variable to metadata ([5586145](https://github.com/BottyIvan/metafix/commit/5586145b91cde3b8787b5eb078b921167b7aaa33))
+
 ## [1.2.0](https://github.com/BottyIvan/metafix/compare/v1.1.0...v1.2.0) (2026-05-25)
 
 ### Features
