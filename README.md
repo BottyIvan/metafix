@@ -91,11 +91,17 @@ Main toggles:
 
 ## Consent, GTM, and Ads
 
+
+### AdSense: environment variables
+
+- `NEXT_PUBLIC_ADSENSE_CLIENT_ID`: **Required for Google AdSense to work**. This must be set as the client ID in the script and in components that display ads. It is the variable required by Google for loading ads.
+- `NEXT_PUBLIC_ADSENSE_ACCOUNT`: **Optional, informational only**. Used to add a custom `google-adsense-account` attribute in the page metadata, useful for diagnostics or tracking, but not required for ads to function.
+
 When tracking is enabled:
 
 - Default consent is denied before GTM initialization.
 - User choices update Consent Mode v2 signals (`ad_storage`, `analytics_storage`, `ad_user_data`, `ad_personalization`).
-- AdSense loads only after accepted consent.
+- AdSense is loaded only after consent is accepted.
 
 Cookiebot mode (certified CMP) is available by setting:
 
