@@ -3,7 +3,6 @@ import { Header } from "@/components/Header";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import { GoogleTagManager } from "@next/third-parties/google";
-import Head from "next/head";
 import "./globals.css";
 import { Footer } from "@/components/Footer";
 import { ConsentBanner } from "@/components/ConsentBanner";
@@ -19,12 +18,19 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const adsenseId = process.env.NEXT_PUBLIC_ADSENSE_ACCOUNT;
+
 export const metadata: Metadata = {
   title: {
     default: "MetaFix",
     template: "%s | MetaFix",
   },
   description: "View and clean file metadata in seconds.",
+  other: adsenseId
+    ? {
+        "google-adsense-account": adsenseId,
+      }
+    : {},
 };
 
 const trackingEnabled = process.env.NEXT_PUBLIC_ENABLE_TRACKING === "true";
@@ -43,14 +49,6 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <Head>
-        {process.env.NEXT_PUBLIC_ADSENSE_ACCOUNT ? (
-          <meta
-            name="google-adsense-account"
-            content={process.env.NEXT_PUBLIC_ADSENSE_ACCOUNT}
-          />
-        ) : null}
-      </Head>
       <body className="min-h-full p-0 m-0 flex flex-col bg-background text-foreground">
         {trackingEnabled ? (
           <Script id="consent-mode-default" strategy="beforeInteractive">
