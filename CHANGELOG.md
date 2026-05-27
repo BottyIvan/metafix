@@ -1,3 +1,9 @@
+## [1.2.3](https://github.com/BottyIvan/metafix/compare/v1.2.2...v1.2.3) (2026-05-27)
+
+### Bug Fixes
+
+* refactor AdSense account handling in metadata and remove Head component ([122d19c](https://github.com/BottyIvan/metafix/commit/122d19c411ff2c66fd65091bc194e69f1fcca912))
+
 ## [1.2.2](https://github.com/BottyIvan/metafix/compare/v1.2.1...v1.2.2) (2026-05-27)
 
 ### Bug Fixes
